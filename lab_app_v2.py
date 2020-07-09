@@ -1,30 +1,30 @@
-'''
-FILE NAME
-lab_app.py
-Version 2
+#'''
+#FILE NAME
+#lab_app.py
+#Version 2
 
-1. WHAT IT DOES
-Implements the first version of the project's Flask application.
-This version contains adds a page that displays sensor readings from the database.
+#1. WHAT IT DOES
+#Implements the first version of the project's Flask application.
+#This version contains adds a page that displays sensor readings from the database.
  
-2. REQUIRES
-* Any Raspberry Pi
+#2. REQUIRES
+#* Any Raspberry Pi
 
-3. ORIGINAL WORK
-Raspberry Full Stack 2018, Peter Dalmaris
+#3. ORIGINAL WORK
+#Raspberry Full Stack 2018, Peter Dalmaris
 
-4. HARDWARE
-* Any Raspberry Pi
-* DHT11 or 22
-* 10KOhm resistor
-* Breadboard
-* Wires
+#4. HARDWARE
+#* Any Raspberry Pi
+#* DHT11 or 22
+#* 10KOhm resistor
+#* Breadboard
+#* Wires
 
-5. SOFTWARE
-Command line terminal
-Simple text editor
-Libraries:
-from flask import Flask, request, render_template, sqlite3
+#5. SOFTWARE
+#Command line terminal
+#simple text editor
+#Libraries:
+#from flask import Flask, request, render_template, sqlite3
 
 
 from flask import Flask, request, render_template
