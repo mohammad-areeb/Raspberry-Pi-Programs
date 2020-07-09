@@ -1,5 +1,7 @@
 This is Raspberry Pi project of dispalying the sensor data over a webpage via NGINX and UWSGI server.
 
+install Flask, NGINX and UWSGI on Pi.
+
 The data is stored in SQLite database and accessed by Python webpage code.
 
 The corresponidng file for UWSGI server that is, the ini file is also uploaded alongside.
