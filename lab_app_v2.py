@@ -26,20 +26,6 @@ Simple text editor
 Libraries:
 from flask import Flask, request, render_template, sqlite3
 
-6. WARNING!
-None
-
-7. CREATED 
-
-8. TYPICAL OUTPUT
-A simple web page served by this flask application in the user's browser.
-The page contains the current temperature and humidity.
-A second page that displays historical environment data from the SQLite3 database.
-
- // 9. COMMENTS
---
- // 10. END
-'''
 
 from flask import Flask, request, render_template
 import sys
@@ -60,6 +46,12 @@ def lab_temp():
 		return render_template("lab_temp.html",temp=temperature,hum=humidity)
 	else:
 		return render_template("no_sensor.html")
+#if you dont have DH sensor then uncomment the following code
+# import random
+#temperature= random.randint(20,30)
+#humidity= random.randint(30,90)
+#and comment the sensor code
+
 
 @app.route("/lab_env_db")
 def lab_env_db():
