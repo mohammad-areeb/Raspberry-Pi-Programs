@@ -1,0 +1,12 @@
+This is Raspberry Pi project of dispalying the sensor data over a webpage via NGINX and UWSGI server.
+
+The data is stored in SQLite database and accessed by Python webpage code.
+
+The corresponidng file for UWSGI server that is, the ini file is also uploaded alongside.
+
+The project is based on Python3.
+
+The addidtional directories that need to be created are: /var/www/lab_app
+(to run the code more easily as the location and extensions are already settled inside)
+
+Currently the project is still under progress, as im trying to add Google charts to display the data more precisely and effectively.
