@@ -1,29 +1,57 @@
-# Raspberry-Pi-Programs
-This is Raspberry Pi project of displaying the sensor data over a webpage via NGINX and UWSGI server.
+## Raspberry Pi Sensor Data Display Webpage
 
-Install Flask, NGINX and UWSGI on Pi by “sudo-apt get install” command.
+This Raspberry Pi project involves displaying sensor data over a webpage using NGINX and UWSGI servers. The project utilizes Flask for web framework, NGINX as the web server, and UWSGI for serving Python web applications.
 
-Sign in with root user as it would give much greater access so type “sudo su” and set up a password for root user and remember it.
+### Installation
 
-The corresponding file for UWSGI server that is, the ini file is also uploaded alongside.
+1. **Install Required Packages:**
+   Use the following command to install Flask, NGINX, and UWSGI on your Raspberry Pi:
+   ```
+   sudo apt-get install python3-flask nginx uwsgi
+   ```
 
-The project is based on Python3 so you would have to install te
+2. **Switch to Root User:**
+   Sign in as the root user to gain necessary access:
+   ```
+   sudo su
+   ```
 
-The additional directories that need to be created are: /var/www/lab_app (to run the code more easily as the location and extensions are already settled inside the different file uploaded on my GitHub).
+3. **Set Up Root Password:**
+   Set up a password for the root user by executing:
+   ```
+   passwd root
+   ```
 
-Install sqlite3 then at the command line type : 
-i.	“sqlite3 lab_app.db 
-ii.	 sqlite> begin; 
-iii. sqlite> create table temperatures (rDatetime datetime, sensorID text, temp numeric); 
-iv.	 sqlite> insert into temperatures values (datetime(CURRENT_TIMESTAMP), "1", 25);
-v.	 sqlite> commit;”
+4. **Create Directories:**
+   Create the directory `/var/www/lab_app` for easier code execution. This directory structure is assumed to be set up within the project files.
 
-To see the values stored in the database, type the following command 
-“sqlite> select * from temperatures” then 
-“sqlite>.exit” 
-Repeat the same process for the humidities table.
+5. **SQLite Database Setup:**
+   - Install SQLite3 and create the database:
+     ```
+     sqlite3 lab_app.db
+     ```
+   - Create tables for temperatures and humidities:
+     ```sql
+     sqlite> begin;
+     sqlite> create table temperatures (rDatetime datetime, sensorID text, temp numeric);
+     sqlite> insert into temperatures values (datetime(CURRENT_TIMESTAMP), "1", 25);
+     sqlite> commit;
+     ```
+   - Repeat the same process for the `humidities` table.
 
-For automatically adding values to the database, we can use crontab. 
-i.	Open the command line and type “crontab -e” then from there choose nano then at the last of the page paste the below code for taking values every 10 minutes.
-ii.	“*/10 * * * * /var/www/lab_app/python  /var/www/lab_app/bin/env_log.py”
-iii.	For choosing the recurring time format i.e., ”*/10 * * * *”, Go to: “crontab.guru”
+6. **Crontab Configuration:**
+   - Open the crontab editor:
+     ```
+     crontab -e
+     ```
+   - Add the following line to execute a script for adding values to the database every 10 minutes:
+     ```
+     */10 * * * * /var/www/lab_app/python /var/www/lab_app/bin/env_log.py
+     ```
+   - Use a crontab generator like `crontab.guru` to define the desired recurring time format.
+
+### Additional Notes
+- Ensure Python3 is installed as the project is based on Python3.
+- Adjust file paths and permissions as necessary for your setup.
+- Modify and enhance the code according to your requirements.
+- For any issues or suggestions, open an issue in the project repository.
